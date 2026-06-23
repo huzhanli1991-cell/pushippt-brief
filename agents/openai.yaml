@@ -1,0 +1,6 @@
+interface:
+  display_name: "PushiPPT Brief"
+  short_description: "联网查证、PPT策划、imagegen出图、PPTX、讲稿"
+  default_prompt: "Use $pushippt-brief to turn my PPT request into a source-backed planning brief, page production table, imagegen page images with text rendered into the images, an image-version PPTX, a complete manuscript, and delivery checklist."
+policy:
+  allow_implicit_invocation: true
