@@ -1,45 +1,50 @@
 ﻿# PushiPPT Brief
 
-`pushippt-brief` is a Codex skill for creating source-backed PPT production briefs and image-version PPT handoff packages.
+`pushippt-brief` 是一个用于 PPT 前期策划与图片版交付生产的 Codex Skill。
 
-它适合用在 AI PPT、商业汇报、路演、课程型演示、答辩材料等场景：先把需求、受众、证据、主线、页面脚本、视觉方向、数据页、素材计划和交付形态整理成完整策划案，再进入整页生图和图片版 PPTX 生产。
+它的定位不是直接“生成几页 PPT”，而是先把一个 PPT 项目拆成可执行的生产方案：明确受众、目标动作、核心阻力、资料证据、叙事主线、页面脚本、页面文案、视觉风格、数据页、素材计划、审稿流程和最终交付清单。适合商业汇报、路演、课程演示、答辩材料、产品方案、项目复盘等场景。
 
-## What It Does
+## 这个 Skill 能做什么
 
-This skill helps Codex produce:
+使用 `pushippt-brief` 后，Codex 可以辅助生成：
 
-- PPT production planning brief
-- audience and task diagnosis
-- source-backed research table
-- persuasive narrative options
-- slide-by-slide script
-- page copy and text-density strategy
-- visual system recommendation
-- data-page and asset planning
-- page production table
-- image-generation prompts for full-slide page images
-- image-version PPTX handoff plan
-- speaker manuscript, review checklist, Q&A prep, and delivery checklist
+- PPT 制作策划案
+- 受众、场景、目标动作和成功标准分析
+- 资料来源表和证据风险判断
+- 2-3 个可选叙事主线
+- 逐页页面规划
+- 页面脚本和页面文案
+- 自阅读 / 现场演讲两种模式下的文字密度策略
+- 视觉风格推荐
+- 数据页规划
+- 素材与图像资产规划
+- 页面生产表
+- 整页生图提示词
+- 图片版 PPTX 交付方案
+- 完整讲稿
+- 审稿清单
+- 答辩问题与备用页建议
+- 最终交付清单
 
-## Core Workflow
+## 核心工作流
 
-The skill follows a gated workflow:
+这个 Skill 采用分阶段确认的工作流：
 
-1. Intake and task diagnosis
-2. Material and source review
-3. Mainline selection
-4. Page plan and slide script
-5. Page copy and text-density decision
-6. Visual style recommendation
-7. Delivery-shape decision
-8. Final planning brief
-9. Page production table
-10. Image-generation package and PPTX handoff
-11. Five-round review and final delivery checklist
+1. 需求采集与任务诊断
+2. 材料整理与资料来源核查
+3. 叙事主线生成与选择
+4. 页面规划与逐页脚本
+5. 页面文案与文字密度判断
+6. 视觉风格推荐
+7. 交付形态判断
+8. 最终策划案确认
+9. 页面生产表确认
+10. 整页图片生产与图片版 PPTX 交付
+11. 五轮审稿与最终交付检查
 
-The workflow intentionally separates planning from production. It should not generate slide images before the planning brief and page production table are confirmed.
+它刻意把“策划”和“生产”分开：在策划案和页面生产表确认前，不应直接进入整页生图。
 
-## Repository Structure
+## 文件结构
 
 ```text
 .
@@ -58,44 +63,44 @@ The workflow intentionally separates planning from production. It should not gen
     └── style-selection.md
 ```
 
-## Installation
+## 安装方式
 
-Clone or download this repository, then place the folder under your Codex skills directory:
-
-```text
-C:\Users\<your-name>\.codex\skills\pushippt-brief
-```
-
-The final folder should contain `SKILL.md` at its root.
-
-## Usage
-
-In Codex, ask for this skill by name or describe a PPT planning task:
+下载或克隆本仓库后，把整个文件夹放到 Codex 的 skills 目录中：
 
 ```text
-Use pushippt-brief to create a production planning brief for this PPT.
+C:\Users\<你的用户名>\.codex\skills\pushippt-brief
 ```
 
-or:
+最终目录结构应保证 `SKILL.md` 位于 `pushippt-brief` 文件夹根目录下。
+
+## 使用方式
+
+在 Codex 中，可以直接点名使用这个 Skill：
 
 ```text
-帮我用 pushippt-brief 做一个商业汇报 PPT 策划案，包含页面脚本、视觉方向、资料来源表和交付清单。
+请使用 pushippt-brief，帮我为这个主题做一份 PPT 制作策划案。
 ```
 
-Codex should then follow the gate-based workflow in `SKILL.md` and the files under `references/`.
+也可以描述具体任务：
 
-## Important Rules
+```text
+帮我做一个商业汇报 PPT 策划案，需要包含资料来源表、页面脚本、视觉方向、页面生产表和交付清单。
+```
 
-- Use public, attributable sources when external facts, market data, product details, or policy claims are needed.
-- Separate user-provided materials, verified sources, and unsupported assumptions.
-- Do not invent data, citations, customer names, policy validity, or product details.
-- Do not generate final page images before the planning brief and page production table are confirmed.
-- Generated page images should not include page numbers, watermarks, decorative logos, or footers unless explicitly requested.
-- Image-version PPTX is the default production target. Editable PPT reconstruction is a separate later workflow.
+Codex 会根据 `SKILL.md` 和 `references/` 下的流程文件，按阶段推进。
 
-## Typical Outputs
+## 重要规则
 
-The full workflow may generate files such as:
+- 涉及市场、政策、产品、数据、案例等外部事实时，要优先使用可追溯来源。
+- 要区分用户提供材料、已验证资料和未经证实的假设。
+- 不要编造数据、引用、客户名称、政策有效性或产品细节。
+- 策划案和页面生产表确认前，不要直接生成最终页面图片。
+- 生成的页面图片默认不加入页码、水印、装饰性 logo 或页脚。
+- 默认交付形态是图片版 PPTX；如果需要文字可编辑，应作为后续独立重建流程处理。
+
+## 典型输出
+
+完整工作流可能生成以下文件：
 
 ```text
 PPT制作策划案.md
@@ -110,6 +115,15 @@ PPT/
 交付清单.md
 ```
 
-## License
+## 适用场景
 
-No license has been specified yet. Add one before distributing or accepting external contributions.
+- AI PPT 制作前的策划方案
+- 商业汇报和管理层汇报
+- 创业路演和融资材料
+- 课程型演示和培训课件
+- 项目答辩和竞赛答辩
+- 需要先规划、再整页生图、最后打包图片版 PPTX 的演示项目
+
+## 许可
+
+当前尚未指定开源许可证。如需公开分发、协作开发或接受外部贡献，建议补充 LICENSE 文件。
